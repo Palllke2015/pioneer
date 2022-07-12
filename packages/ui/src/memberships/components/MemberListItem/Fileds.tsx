@@ -8,7 +8,7 @@ import { BorderRad, Fonts, Sizes, Transitions, Colors } from '../../../common/co
 type MemberItemKind = 'Member' | 'MyMember'
 export const colLayoutByType = (kind: MemberItemKind) => {
   const name = 190
-  const roles = 164
+  const roles = kind === 'Member' ? 136 : 164
   const created = 90
   const referrer = 50
   const count = kind === 'Member' ? 20 : 76

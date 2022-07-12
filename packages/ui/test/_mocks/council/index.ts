@@ -6,6 +6,7 @@ import { RawCouncilMock, RawCouncilorMock } from '@/mocks/data/seedCouncils'
 
 import { alice } from '../keyring/signers'
 
+//@ts-ignore
 const ALICE: MockMember = rawMembers[0]
 const getMember = (attrs: Partial<MockMember>): MockMember => ({ ...ALICE, ...attrs })
 

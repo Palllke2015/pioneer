@@ -6,11 +6,11 @@ import { TokenValue } from '@/common/components/typography/TokenValue'
 import { useMemberRowWorkDetails } from '@/memberships/hooks/useMemberRowWorkDetails'
 import { useShowMemberModal } from '@/memberships/hooks/useShowMemberModal'
 
-import { MemberInfo, MemberCreated } from '..'
+import { MemberInfo, MemberCreated, MemberReferrer } from '..'
 import { Member, MemberWithDetails } from '../../types'
 import { MemberRoles } from '../MemberRoles'
 
-import { CountInfo, MemberColumn, MemberItemWrap, MemberModalTrigger, MemberRolesColumn } from './Fileds'
+import { CountInfo, Info, MemberColumn, MemberItemWrap, MemberModalTrigger, MemberRolesColumn } from './Fileds'
 
 export const MemberListItem = ({ member }: { member: Member & Partial<Pick<MemberWithDetails, 'entry'>> }) => {
   const balance = useBalance(member.controllerAccount)
@@ -33,7 +33,9 @@ export const MemberListItem = ({ member }: { member: Member & Partial<Pick<Membe
         <MemberCreated member={member} />
       </MemberColumn>
 
-      <MemberColumn>Referrer</MemberColumn>
+      <MemberColumn>
+        <MemberReferrer member={member} />
+      </MemberColumn>
 
       <MemberColumn>
         <CountInfo count={slashed} />

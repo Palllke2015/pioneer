@@ -18,7 +18,8 @@ const asBoundAccountsEvent = (
 })
 
 export const asMember = (
-  data: Omit<MemberFieldsFragment, '__typename'> & Partial<Pick<MemberWithDetailsFieldsFragment, 'entry'>>
+  data: Omit<MemberFieldsFragment, '__typename'> &
+    Partial<Pick<MemberWithDetailsFieldsFragment, 'entry'> & { invitedBy: any }>
 ): Member & Partial<Pick<MemberWithDetails, 'entry'>> => ({
   id: data.id,
   handle: data.handle,
@@ -35,6 +36,7 @@ export const asMember = (
   roles: data.roles.map(asMemberRole),
   createdAt: data.createdAt,
   entry: data.entry ? asMemberEntry(data.entry) : undefined,
+  invitedBy: data.invitedBy ? { ...data.invitedBy, roles: data.invitedBy.roles.map(asMemberRole) } : null,
 })
 
 export const asMemberRole = (data: MemberFieldsFragment['roles'][0]): MemberRole => ({

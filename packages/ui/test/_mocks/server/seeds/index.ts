@@ -20,6 +20,7 @@ export const MEMBER_ALICE_DATA: MockMember = {
   inviteCount: 5,
   boundAccounts: [accountsMap.alice, accountsMap.alice_stash],
   entry: {
+    //@ts-ignore
     __typename: '',
     membershipBoughtEvent: seedRandomBlockFields(),
   },

@@ -23,6 +23,7 @@ export type MockMember = Omit<MemberFieldsFragment, '__typename' | 'metadata' | 
   createdAt?: string
 }
 
+//@ts-ignore
 export const mockMembers: MockMember[] = rawMembers.map((rawMember) => rawMember)
 
 const seedMembershipEntry = (member: MockMember, server: any) => {
